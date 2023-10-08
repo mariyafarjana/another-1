@@ -3,17 +3,16 @@
 import java.util.Scanner;
 //hello its the edit
 public class JavaCalc {
-    static String xS = new String(), yS = new String(), operS = new String();
+    static String xS = new String(), yS = new String(), operatorString = new String();
     static Scanner s = new Scanner(System.in);
-
-    static int oper, xI, yI;
+    static int operator, xI, yI;
 
     public static void main(String[] args) {
         System.out
                 .println("Simple Java 2 Operator Command Line Calculator!\n\tBy:Andrew Carr\n\nCTRL+C to quit");
 
         while (!xS.equalsIgnoreCase("quit") || !yS.equalsIgnoreCase("quit")
-                || !operS.equalsIgnoreCase("quit")) {
+                || !operatorString.equalsIgnoreCase("quit")) {
 
             while (xS.equals("")) {
                 System.out.print("Enter Var 1? ");
@@ -24,33 +23,33 @@ public class JavaCalc {
                 yS = s.nextLine().trim();
             }
 
-            while (operS.equalsIgnoreCase("")) {
+            while (operatorString.equalsIgnoreCase("")) {
                 System.out.println("\nvar1=" + xS + " var2=" + yS + "\n"
-                        + "\tSelect an oper:" + "\n\t\t1 = +\n"
+                        + "\tSelect an operator:" + "\n\t\t1 = +\n"
                         + "\n\t\t2 = -\n" + "\n\t\t3 = /\n" + "\n\t\t4 = *\n"
                         + "\n\t\t5 = %\n" + "\n\tChoice? ");
 
-                operS = s.nextLine();
+                operatorString = s.nextLine();
             }
 
-            if (operS.equalsIgnoreCase("quit"))
+            if (operatorString.equalsIgnoreCase("quit"))
                 continue;
 
             System.out.println("Parsing...");
             try {
                 xI = Integer.valueOf(xS);
                 yI = Integer.valueOf(yS);
-                oper = Integer.valueOf(operS);
+                operator = Integer.valueOf(operatorString);
             } catch (Exception e) {
                 System.out.println("Values entered are bad, try again..."
                         + e.getMessage());
 						xS="";
 						yS="";
-						operS="";
+						operatorString="";
                 continue;
             }
 
-            switch (oper) {
+            switch (operator) {
             case 1:
                 // addition
                 try {
@@ -115,7 +114,7 @@ public class JavaCalc {
 				System.out.println("Invalid choice...");
             }
 
-            operS = "";
+            operatorString = "";
 			xS = "";
 			yS = "";
 
